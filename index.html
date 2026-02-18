@@ -491,6 +491,22 @@
     document.getElementById('pause-btn').onclick = togglePause;
     document.getElementById('resume-btn').onclick = togglePause;
     renderHangar(); loop();
+<script>
+  const tg = window.Telegram.WebApp;
+  tg.expand();
+
+  const user = tg.initDataUnsafe?.user;
+
+  if (user) {
+    console.log("User ID:", user.id);
+    console.log("Username:", user.username);
+    console.log("First Name:", user.first_name);
+
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      `<p>Welcome ${user.first_name}</p>`
+    );
+  }
 </script>
 </body>
 </html>
